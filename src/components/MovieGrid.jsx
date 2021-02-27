@@ -12,9 +12,7 @@ export default () => {
     <>
       <ul>
         {_.map(movies, (m) => (
-          <li key={m._id}>
-            <a href={`movie/${m._id}`}>{m.title}</a>
-          </li>
+          <MovieCard key={m._id} {...m} />
         ))}
       </ul>
     </>
