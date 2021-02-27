@@ -1,20 +1,23 @@
-import React from "react";
-import _ from "lodash";
+import _ from 'lodash';
+import { MDBRow } from 'mdbreact';
+import React from 'react';
 
-import MovieCard from "./MovieCard";
-
-import { getMovies } from "../services/movies";
+import { getMovies } from '../services/movies';
+import MovieCard from './MovieCard';
+import styles from './MovieCardnGrid.styles';
 
 export default () => {
   const movies = getMovies();
 
   return (
     <>
-      <ul>
-        {_.map(movies, (m) => (
-          <MovieCard key={m._id} {...m} />
-        ))}
-      </ul>
+      <styles.MDBContainerS className="mx-auto text-center">
+        <MDBRow>
+          {_.map(movies, (m) => (
+            <MovieCard key={m._id} {...m} />
+          ))}
+        </MDBRow>
+      </styles.MDBContainerS>
     </>
   );
 };
