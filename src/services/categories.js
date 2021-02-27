@@ -8,4 +8,5 @@ const categories = [
   { _id: "105", name: "Nature" },
 ];
 
+export const getCategories = () => categories;
 export const getCategoryByID = (id) => _.find(categories, { _id: id });
