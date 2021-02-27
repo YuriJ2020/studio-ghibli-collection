@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
-import { MDBBtn, MDBCardBody, MDBCardImage, MDBCardText, MDBCol, MDBRow } from 'mdbreact';
+import { MDBBtn, MDBCardBody, MDBCardText, MDBCol } from 'mdbreact';
 
 import styles from './MovieCardnGrid.styles';
 
@@ -10,12 +10,7 @@ export default (props) => {
       <MDBCol lg="4" md="6">
         <styles.DivS>
           <styles.MDBCardS>
-            <MDBCardImage
-              className="img-fluid"
-              src={props.img}
-              style={{ borderRadius: '1.6rem' }}
-              waves
-            />
+            <styles.MDBCardImageS className="img-fluid" src={props.img} waves />
             <MDBCardBody>
               <styles.MDBCardTitleS>{props.title}</styles.MDBCardTitleS>
               <MDBCardText>{props.description}</MDBCardText>

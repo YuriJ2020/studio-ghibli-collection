@@ -235,3 +235,4 @@ const movies = [
 
 export const getMovies = () => movies;
 export const getMovieByID = (id) => _.find(movies, { _id: id });
+export const getMovieByCategoryID = (cid) => _.find(movies, m => _.get(m, 'category._id') === cid);

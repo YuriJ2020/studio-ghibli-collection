@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {
   MDBCard,
+  MDBCardImage,
   MDBCardTitle,
   MDBContainer,
 } from 'mdbreact';
@@ -22,5 +23,9 @@ export default {
 
   DivS: styled.div`
     padding-bottom: 2.6rem;
+  `,
+
+  MDBCardImageS: styled(MDBCardImage)`
+    border-radius: 1.6rem;
   `,
 };
