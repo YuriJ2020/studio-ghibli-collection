@@ -3,7 +3,7 @@ import _ from "lodash";
 const movies = [
   {
     _id: "1",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/1-nausicaa.png`,
     title: "Nausicaä of the Valley of the Wind",
     released: "1984",
     description:
@@ -13,7 +13,7 @@ const movies = [
   },
   {
     _id: "2",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/2-castle.png`,
     title: "Castle in the Sky",
     released: "1986",
     description:
@@ -23,7 +23,7 @@ const movies = [
   },
   {
     _id: "3",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/3-totoro.png`,
     title: "My Neighbor Totoro",
     released: "1988",
     description:
@@ -33,7 +33,7 @@ const movies = [
   },
   {
     _id: "4",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/4-hotaru.png`,
     title: "Grave of the Fireflies",
     released: "1988",
     description:
@@ -43,7 +43,7 @@ const movies = [
   },
   {
     _id: "5",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/5-majo.png`,
     title: "Kiki's Delivery Service",
     released: "1989",
     description:
@@ -53,7 +53,7 @@ const movies = [
   },
   {
     _id: "6",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/6-omoide.png`,
     title: "Only Yesterday",
     released: "1991",
     description:
