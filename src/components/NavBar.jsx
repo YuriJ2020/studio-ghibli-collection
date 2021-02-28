@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import { BrowserRouter as Router } from 'react-router-dom';
 import React, { useState } from 'react';
+
 import {
   MDBCollapse,
   MDBDropdown,
@@ -16,8 +17,9 @@ import {
 } from 'mdbreact';
 
 import { getCategories } from '../services/categories';
+import Switch from '../switch';
 
-export default (props) => {
+export default () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleCollapse = () => setIsOpen(!isOpen);
   return (
@@ -31,7 +33,7 @@ export default (props) => {
           <MDBCollapse id="navbarCollapse" isOpen={isOpen} navbar>
             <MDBNavbarNav left>
               <MDBNavItem active>
-                <MDBNavLink to="/">Home</MDBNavLink>
+                <MDBNavLink to="/">All Movies</MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
                 <MDBDropdown>
@@ -53,6 +55,7 @@ export default (props) => {
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>
+        <Switch />
       </Router>
     </>
   );
