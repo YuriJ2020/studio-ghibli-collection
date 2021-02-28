@@ -6,7 +6,7 @@ import { getMovies } from '../services/movies';
 import MovieCard from './MovieCard';
 import styles from './MovieCardnGrid.styles';
 
-export default () => {
+const MovieGrid = () => {
   const movies = getMovies();
 
   return (
@@ -21,3 +21,5 @@ export default () => {
     </>
   );
 };
+
+export default MovieGrid;

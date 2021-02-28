@@ -1,10 +1,9 @@
-import _ from 'lodash';
 import React from 'react';
 import { MDBBtn, MDBCardBody, MDBCardText, MDBCol } from 'mdbreact';
 
 import styles from './MovieCardnGrid.styles';
 
-export default (props) => {
+const MovieCard = (props) => {
   return (
     <>
       <MDBCol lg="4" md="6">
@@ -22,3 +21,5 @@ export default (props) => {
     </>
   );
 };
+
+export default MovieCard;

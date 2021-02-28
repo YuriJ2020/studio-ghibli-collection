@@ -2,7 +2,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import MovieGrid from '../components/MovieGrid';
 
-export default () => (
+const CustomSwitch = () => (
   <>
     <Switch>
       <Route exact path="/">
@@ -16,3 +16,5 @@ export default () => (
     </Switch>
   </>
 );
+
+export default CustomSwitch;

@@ -6,7 +6,7 @@ import {
   MDBContainer,
 } from 'mdbreact';
 
-export default {
+const styles = {
   MDBContainerS: styled(MDBContainer)`
     text-align: center;
     margin-top: 5rem;
@@ -29,3 +29,5 @@ export default {
     border-radius: 1.6rem;
   `,
 };
+
+export default styles;

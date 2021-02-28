@@ -17,9 +17,9 @@ import {
 } from 'mdbreact';
 
 import { getCategories } from '../services/categories';
-import Switch from '../switch';
+import CustomSwitch from '../switch';
 
-export default () => {
+const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleCollapse = () => setIsOpen(!isOpen);
   return (
@@ -42,7 +42,9 @@ export default () => {
                   </MDBDropdownToggle>
                   <MDBDropdownMenu>
                     {_.map(getCategories(), (c) => (
-                      <MDBDropdownItem href={`/category/${c._id}`}>{c.name}</MDBDropdownItem>
+                      <MDBDropdownItem key={c._id} href={`/category/${c._id}`}>
+                        {c.name}
+                      </MDBDropdownItem>
                     ))}
                   </MDBDropdownMenu>
                 </MDBDropdown>
@@ -55,8 +57,10 @@ export default () => {
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>
-        <Switch />
+        <CustomSwitch />
       </Router>
     </>
   );
 };
+
+export default NavBar;

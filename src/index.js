@@ -10,7 +10,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import { getMovieByID } from "./services/movies";
+import { getMovies } from "./services/movies";
+import { getCategories } from "./services/categories";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,8 +20,8 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-console.log("Movie ID 20:");
-console.log(getMovieByID("20"));
+console.debug(`Category Dump from Fake Service:`, getCategories());
+console.debug(`Movie Dump from Fake Service:`, getMovies());
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
