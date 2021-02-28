@@ -233,6 +233,6 @@ const movies = [
   },
 ];
 
-export const getMovies = () => movies;
 export const getMovieByID = (mid) => _.find(movies, { _id: mid });
-export const getMovieByCategoryID = (cid) => _.find(movies, m => _.get(m, 'category._id') === cid);
+export const getMovies = () => movies;
+export const getMoviesByCategoryID = (cid) => _.filter(movies, m => _.get(m, 'category._id') === cid);
