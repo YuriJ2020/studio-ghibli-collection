@@ -35,7 +35,7 @@ const NavBar = (props) => {
           <MDBCollapse id="navbarCollapse" isOpen={isOpen} navbar>
             <MDBNavbarNav left>
               <MDBNavItem active>
-                <MDBNavLink to="/">All Movies</MDBNavLink>
+                <MDBNavLink to="/?page=1">All Movies</MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
                 <MDBDropdown>
@@ -44,7 +44,7 @@ const NavBar = (props) => {
                   </MDBDropdownToggle>
                   <MDBDropdownMenu>
                     {_.map(getCategories(), (c) => (
-                      <MDBDropdownItem key={c._id} href={`/category/${c._id}`}>
+                      <MDBDropdownItem key={c._id} href={`/category/${c._id}?page=1`}>
                         {c.name}
                       </MDBDropdownItem>
                     ))}
