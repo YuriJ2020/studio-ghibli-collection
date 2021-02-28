@@ -15,7 +15,7 @@ const MovieDetails = () => {
         <Redirect to="/notfound" />
       ) : (
         <div>
-          <img src={movie.img} />
+          <img src={movie.img} alt={movie.title} />
           <p>Title: {movie.title}</p>
           <p>Category: {movie.category.name}</p>
           <p>Release Year: {movie.released}</p>

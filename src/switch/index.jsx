@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import MovieDetails from '../components/MovieDetails';
 import MovieGrid from '../components/MovieGrid';
 import NotFound from '../components/NotFound';
+import Questionnaire from '../components/Questionnaire';
 
 const CustomSwitch = () => (
   <>
@@ -16,7 +17,9 @@ const CustomSwitch = () => (
       <Route path="/movie/:mid">
         <MovieDetails />
       </Route>
-      <Route path="/questionnaire" />
+      <Route path="/questionnaire">
+        <Questionnaire />
+      </Route>
       <Route exact path="/notfound">
         <NotFound />
       </Route>
