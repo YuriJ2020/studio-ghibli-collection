@@ -1,10 +1,12 @@
 import './App.css';
-import NavBar from './components/NavBar';
+
+import CustomSwitch from "./switch";
+import navBarWithSwitch from './components/NavBar';
 
 const App = () => (
   <>
     <div className="App">
-      <NavBar />
+      {navBarWithSwitch(CustomSwitch)}
     </div>
   </>
 );

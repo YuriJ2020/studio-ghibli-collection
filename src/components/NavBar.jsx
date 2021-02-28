@@ -17,11 +17,13 @@ import {
 } from 'mdbreact';
 
 import { getCategories } from '../services/categories';
-import CustomSwitch from '../switch';
+// import CustomSwitch from '../switch';
 
-const NavBar = () => {
+const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleCollapse = () => setIsOpen(!isOpen);
+  const { children } = props;
+
   return (
     <>
       <Router>
@@ -57,10 +59,18 @@ const NavBar = () => {
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>
-        <CustomSwitch />
+        {children}
       </Router>
     </>
   );
 };
 
-export default NavBar;
+const navBarWithSwitch = (CustomSwitch) => (
+  <>
+    <NavBar>
+      <CustomSwitch />
+    </NavBar>
+  </>
+);
+
+export default navBarWithSwitch;
