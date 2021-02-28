@@ -63,7 +63,7 @@ const movies = [
   },
   {
     _id: "7",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/7-buta.png`,
     title: "Porco Rosso",
     released: "1992",
     description:
@@ -73,7 +73,7 @@ const movies = [
   },
   {
     _id: "8",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/8-umi.png`,
     title: "Ocean Waves",
     released: "1993",
     description:
@@ -83,7 +83,7 @@ const movies = [
   },
   {
     _id: "9",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/9-tanuki.png`,
     title: "Pom Poko",
     released: "1994",
     description:
@@ -93,7 +93,7 @@ const movies = [
   },
   {
     _id: "10",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/10-mimi.png`,
     title: "Whisper of the Heart",
     released: "1995",
     description:
@@ -103,7 +103,7 @@ const movies = [
   },
   {
     _id: "11",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/11-mononoke.png`,
     title: "Princess Mononoke",
     released: "1997",
     description:
@@ -113,7 +113,7 @@ const movies = [
   },
   {
     _id: "12",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/12-yamada.png`,
     title: "My Neighbors the Yamadas",
     released: "1999",
     description:
@@ -123,7 +123,7 @@ const movies = [
   },
   {
     _id: "13",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/13-chihiro.png`,
     title: "Spirited Away",
     released: "2001",
     description:
@@ -133,7 +133,7 @@ const movies = [
   },
   {
     _id: "14",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/14-neko.png`,
     title: "The Cat Returns",
     released: "2002",
     description:
@@ -143,7 +143,7 @@ const movies = [
   },
   {
     _id: "15",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/15-howl.png`,
     title: "Howl's Moving Castle",
     released: "2004",
     description:
@@ -153,7 +153,7 @@ const movies = [
   },
   {
     _id: "16",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/16-gedo.png`,
     title: "Tales from Earthsea",
     released: "2006",
     description:
@@ -163,7 +163,7 @@ const movies = [
   },
   {
     _id: "17",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/17-ponyo.png`,
     title: "Ponyo",
     released: "2008",
     description:
@@ -173,7 +173,7 @@ const movies = [
   },
   {
     _id: "18",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/18-ari.png`,
     title: "Arrietty",
     released: "2010",
     description:
@@ -183,7 +183,7 @@ const movies = [
   },
   {
     _id: "19",
-    img: `${process.env.PUBLIC_URL}/movie-images/20-kazetachinu.png`,
+    img: `${process.env.PUBLIC_URL}/movie-images/19-kokuriko.png`,
     title: "From Up on Poppy Hill",
     released: "2011",
     description:
@@ -235,4 +235,5 @@ const movies = [
 
 export const getMovieByID = (mid) => _.find(movies, { _id: mid });
 export const getMovies = () => movies;
-export const getMoviesByCategoryID = (cid) => _.filter(movies, m => _.get(m, 'category._id') === cid);
+export const getMoviesByCategoryID = (cid) =>
+  _.filter(movies, (m) => _.get(m, "category._id") === cid);
