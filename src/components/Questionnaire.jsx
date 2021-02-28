@@ -9,7 +9,7 @@ const Questionnaire = () => {
   const [lname, setLname] = useState();
   const [email, setEmail] = useState();
   const [city, setCity] = useState();
-  const [geoState, setGeoState] = useState();
+  const [countryState, setCountryState] = useState();
   const [zip, setZip] = useState();
 
   const submitHandler = (e) => {
@@ -20,7 +20,7 @@ const Questionnaire = () => {
       !_.isUndefined(lname) &&
       !_.isUndefined(email) &&
       !_.isUndefined(city) &&
-      !_.isUndefined(geoState) &&
+      !_.isUndefined(countryState) &&
       !_.isUndefined(zip)
     ) {
       addQuestionnaires({
@@ -28,11 +28,11 @@ const Questionnaire = () => {
         lname,
         email,
         city,
-        geoState,
+        countryState: countryState,
         zip,
       });
+      console.debug('Questionnaires:', getQuestionnaires());
     }
-    console.debug('Questionnaires:', getQuestionnaires());
   };
 
   return (
@@ -114,8 +114,8 @@ const Questionnaire = () => {
                 State
               </label>
               <input
-                value={geoState}
-                onChange={(e) => setGeoState(e.target.value)}
+                value={countryState}
+                onChange={(e) => setCountryState(e.target.value)}
                 type="text"
                 id="defaultFormRegisterStateEx4"
                 className="form-control"

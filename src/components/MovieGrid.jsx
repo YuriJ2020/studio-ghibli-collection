@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { MDBRow } from 'mdbreact';
+import { MDBPagination, MDBPageItem, MDBPageNav, MDBCol, MDBRow } from 'mdbreact';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -19,8 +19,38 @@ const MovieGrid = () => {
       <styles.MDBContainerS className="mx-auto text-center">
         <MDBRow>
           {_.map(movies, (m) => (
-            <MovieCard key={m._id} {...m} />
+            <MDBCol key={`col-${m._id}`}>
+              <MovieCard key={`card-${m._id}`} {...m} />
+            </MDBCol>
           ))}
+        </MDBRow>
+
+        <MDBRow>
+          <MDBCol>
+            <MDBPagination className="mb-5">
+              <MDBPageItem disabled>
+                <MDBPageNav aria-label="Previous">
+                  <span aria-hidden="true">Previous</span>
+                </MDBPageNav>
+              </MDBPageItem>
+              <MDBPageItem active>
+                <MDBPageNav>
+                  1 <span className="sr-only">(current)</span>
+                </MDBPageNav>
+              </MDBPageItem>
+              <MDBPageItem>
+                <MDBPageNav>2</MDBPageNav>
+              </MDBPageItem>
+              <MDBPageItem>
+                <MDBPageNav>3</MDBPageNav>
+              </MDBPageItem>
+              <MDBPageItem>
+                <MDBPageNav aria-label="Previous">
+                  <span aria-hidden="true">Next</span>
+                </MDBPageNav>
+              </MDBPageItem>
+            </MDBPagination>
+          </MDBCol>
         </MDBRow>
       </styles.MDBContainerS>
     </>
