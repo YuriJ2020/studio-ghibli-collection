@@ -1,6 +1,7 @@
-import _ from 'lodash';
-import { BrowserRouter as Router } from 'react-router-dom';
-import React, { useState } from 'react';
+import _ from "lodash";
+import { BrowserRouter as Router } from "react-router-dom";
+import React, { useState } from "react";
+import TotoroLogo from "../assets/totoro-logo2.png";
 
 import {
   MDBCollapse,
@@ -14,9 +15,9 @@ import {
   MDBNavbarToggler,
   MDBNavItem,
   MDBNavLink,
-} from 'mdbreact';
+} from "mdbreact";
 
-import { getCategories } from '../services/categories';
+import { getCategories } from "../services/categories";
 // import CustomSwitch from '../switch';
 
 const NavBar = (props) => {
@@ -27,10 +28,13 @@ const NavBar = (props) => {
   return (
     <>
       <Router>
-        <MDBNavbar color="indigo" dark expand="md">
-          <MDBNavbarBrand>
-            <strong className="white-text">Studio Ghibli</strong>
-          </MDBNavbarBrand>
+        <MDBNavbar color="aqua-gradient" dark expand="md">
+          <MDBNavLink to="/?page=1">
+            <MDBNavbarBrand>
+              <img src={TotoroLogo} height="60" alt="" loading="lazy" />
+              <strong className="white-text">Studio Ghibli Collection</strong>
+            </MDBNavbarBrand>
+          </MDBNavLink>
           <MDBNavbarToggler onClick={toggleCollapse} />
           <MDBCollapse id="navbarCollapse" isOpen={isOpen} navbar>
             <MDBNavbarNav left>
@@ -44,7 +48,10 @@ const NavBar = (props) => {
                   </MDBDropdownToggle>
                   <MDBDropdownMenu>
                     {_.map(getCategories(), (c) => (
-                      <MDBDropdownItem key={c._id} href={`/category/${c._id}?page=1`}>
+                      <MDBDropdownItem
+                        key={c._id}
+                        href={`/category/${c._id}?page=1`}
+                      >
                         {c.name}
                       </MDBDropdownItem>
                     ))}
@@ -52,9 +59,9 @@ const NavBar = (props) => {
                 </MDBDropdown>
               </MDBNavItem>
             </MDBNavbarNav>
-            <MDBNavbarNav right>
+            <MDBNavbarNav right className="mr-5">
               <MDBNavItem active>
-                <MDBNavLink to="/questionnaire">Questionnaire</MDBNavLink>
+                <MDBNavLink to="/questionnaire">Inquiry</MDBNavLink>
               </MDBNavItem>
             </MDBNavbarNav>
           </MDBCollapse>

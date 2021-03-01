@@ -1,10 +1,5 @@
-import styled from 'styled-components';
-import {
-  MDBCard,
-  MDBCardImage,
-  MDBCardTitle,
-  MDBContainer,
-} from 'mdbreact';
+import styled from "styled-components";
+import { MDBCard, MDBCardImage, MDBCardTitle, MDBContainer } from "mdbreact";
 
 const styles = {
   MDBContainerS: styled(MDBContainer)`
@@ -17,7 +12,7 @@ const styles = {
   `,
 
   MDBCardS: styled(MDBCard)`
-    width: 18rem;
+    width: 20rem;
     border-radius: 1.6rem;
   `,
 
