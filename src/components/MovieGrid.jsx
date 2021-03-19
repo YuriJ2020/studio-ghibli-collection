@@ -1,35 +1,55 @@
-import _ from 'lodash';
-import { MDBPagination, MDBPageItem, MDBPageNav, MDBCol, MDBRow } from 'mdbreact';
-import { useLocation, useParams } from 'react-router-dom';
-import React from 'react';
+import _ from "lodash";
+import {
+  MDBPagination,
+  MDBPageItem,
+  MDBPageNav,
+  MDBCol,
+  MDBRow,
+} from "mdbreact";
+import { useLocation, useParams } from "react-router-dom";
+import React from "react";
 
-import { constants } from '../constants';
-import { getMoviesByCategoryID, getMovies } from '../services/movies';
-import MovieCard from './MovieCard';
-import styles from './MovieCardnGrid.styles';
+import { constants } from "../constants";
+import { getMoviesByCategoryID, getMovies } from "../services/movies";
+import MovieCard from "./MovieCard";
+import styles from "./MovieCardnGrid.styles";
 
 const MovieGrid = () => {
   const params = useParams();
   const search = useLocation().search;
-  const cid = _.get(params, 'cid');
-  const page = _.toNumber(new URLSearchParams(search).get('page'));
+  const cid = _.get(params, "cid");
+  const page = _.toNumber(new URLSearchParams(search).get("page"));
 
-  const moviesAll = _.isUndefined(cid) ? getMovies() : getMoviesByCategoryID(cid);
+  const moviesAll = _.isUndefined(cid)
+    ? getMovies()
+    : getMoviesByCategoryID(cid);
   const moviesPaginated = _.isNaN(page)
     ? []
     : page === 0
     ? moviesAll
-    : _.slice(moviesAll, constants.itemsPerPage * (page - 1), constants.itemsPerPage * page);
-  const pages = _.isNaN(page) || page === 0 ? 0 : _.ceil(moviesAll.length / constants.itemsPerPage);
+    : _.slice(
+        moviesAll,
+        constants.itemsPerPage * (page - 1),
+        constants.itemsPerPage * page
+      );
+  const pages =
+    _.isNaN(page) || page === 0
+      ? 0
+      : _.ceil(moviesAll.length / constants.itemsPerPage);
 
-  console.debug('MovieGrid params:', params);
+  console.debug("MovieGrid params:", params);
 
   return (
     <>
       <styles.MDBContainerS className="mx-auto text-center">
         <MDBRow>
           {_.map(moviesPaginated, (m) => (
-            <MDBCol key={`col-${m._id}`} lg="4" md="6" className="justify-content-center">
+            <MDBCol
+              key={`col-${m._id}`}
+              lg="4"
+              md="6"
+              className="justify-content-center"
+            >
               <MovieCard key={`card-${m._id}`} {...m} />
             </MDBCol>
           ))}

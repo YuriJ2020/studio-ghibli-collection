@@ -297,7 +297,7 @@ const movies = [
     description:
       "A lifelong love of flight inspires Japanese aviation engineer Jiro Horikoshi, whose storied career includes the creation of the A-6M World War II fighter plane.",
     descriptionDetail:
-      "A lifelong love of flight inspires Japanese aviation engineer Jiro Horikoshi, whose storied career includes the creation of the A-6M World War II fighter plane.",
+      "Young Jiro Horikoshi is a nearsighted boy who has fantastical dreams of flying airplanes, swooping above the green fields of his country, the landscape unfurling below him like a magical land of possibility. Being a pilot is closed to him due to his eyesight, but he decides to go to school to be an engineer and design those beautiful dreams for others to fly. Through this endeavor, he is encouraged by an Italian aircraft pioneer, a Count Caproni, who is a muse-like character appearing to him in dreams, showing him the glorious possibilities of flight and the gigantic flying machines he has built, giving the young Japanese boy a sense of how far one can go in one's imagination. ",
     URL: "#",
     category: { _id: "103", name: "War" },
   },

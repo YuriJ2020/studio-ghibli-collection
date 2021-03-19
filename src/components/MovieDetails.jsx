@@ -7,7 +7,6 @@ import {
   MDBRow,
   MDBCol,
   MDBCardTitle,
-  MDBIcon,
 } from "mdbreact";
 
 import styled from "styled-components";
@@ -19,23 +18,11 @@ const MDBColS = (props) => {
   const MDBColStyled = styled(MDBCol)`
     background-image: url(${movie.imgDetail}),
       linear-gradient(to right, #484848, #ffffff);
-
-    height: 90vh;
+    min-height: 70vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    // position: relative;
     background-blend-mode: multiply;
-
-    // &::before {
-    //   background-color: rgba(0, 0, 0, 0.4);
-    //   position: absolute;
-    //   top: 0;
-    //   right: 0;
-    //   bottom: 0;
-    //   left: 0;
-    //   content: " ";
-    // }
   `;
   return <MDBColStyled className={className}>{children}</MDBColStyled>;
 };
@@ -70,13 +57,15 @@ const MovieDetails = () => {
                     <MDBRow>
                       <MDBCol md={2}>
                         <p className="mx-5 mb-5">
-                          <span className="font-weight-bold">Directed By </span>
+                          <span className="font-weight-bold text-nowrap">
+                            Directed By{" "}
+                          </span>
                           <br />
                           {movie.directed}
                         </p>
                       </MDBCol>
                       <MDBCol md={2}>
-                        <p className="mx-5 mb-5">
+                        <p className="mx-5 mb-5 text-nowrap">
                           <span className="font-weight-bold">
                             Released Year
                           </span>

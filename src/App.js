@@ -1,11 +1,11 @@
-import './App.css';
+import "./App.css";
 
 import CustomSwitch from "./switch";
-import navBarWithSwitch from './components/NavBar';
+import navBarWithSwitch from "./components/NavBar";
 
 const App = () => (
   <>
-    <div className="App">
+    <div className="App cloudy-knoxville-gradient">
       {navBarWithSwitch(CustomSwitch)}
     </div>
   </>

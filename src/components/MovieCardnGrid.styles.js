@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { MDBCard, MDBCardImage, MDBCardTitle, MDBContainer } from "mdbreact";
+import {
+  MDBCard,
+  MDBCardImage,
+  MDBCardTitle,
+  MDBContainer,
+  MDBBtn,
+} from "mdbreact";
 
 const styles = {
   MDBContainerS: styled(MDBContainer)`
@@ -12,7 +18,7 @@ const styles = {
   `,
 
   MDBCardS: styled(MDBCard)`
-    width: 20rem;
+    width: 19rem;
     border-radius: 1.6rem;
   `,
 
@@ -22,6 +28,9 @@ const styles = {
 
   MDBCardImageS: styled(MDBCardImage)`
     border-radius: 1.6rem;
+  `,
+  MDBBtnS: styled(MDBBtn)`
+    background-color: #009999 !important;
   `,
 };
 
