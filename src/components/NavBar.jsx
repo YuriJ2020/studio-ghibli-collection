@@ -1,10 +1,11 @@
-import _ from "lodash";
-import { BrowserRouter as Router } from "react-router-dom";
-import React, { useState } from "react";
-import TotoroLogo from "../assets/totoro-logo2.png";
+import _ from 'lodash';
+import { BrowserRouter as Router } from 'react-router-dom';
+import React, { useState } from 'react';
+import TotoroLogo from '../assets/totoro-logo2.png';
 
 import {
   MDBCollapse,
+  MDBContainer,
   MDBDropdown,
   MDBDropdownItem,
   MDBDropdownMenu,
@@ -15,20 +16,26 @@ import {
   MDBNavbarToggler,
   MDBNavItem,
   MDBNavLink,
-} from "mdbreact";
+} from 'mdbreact';
 
-import { getCategories } from "../services/categories";
+import { getCategories } from '../services/categories';
 // import CustomSwitch from '../switch';
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isNavbarFixed, setNavbarFixed] = useState(false);
   const toggleCollapse = () => setIsOpen(!isOpen);
   const { children } = props;
+
+  const onClickFixNavbar = (e) => {
+    e.preventDefault();
+    setNavbarFixed(!isNavbarFixed);
+  };
 
   return (
     <>
       <Router>
-        <MDBNavbar color="aqua-gradient" dark expand="md">
+        <MDBNavbar color="aqua-gradient" dark expand="md" fixed={isNavbarFixed ? 'top' : undefined}>
           <MDBNavLink to="/?page=1">
             <MDBNavbarBrand>
               <img src={TotoroLogo} height="60" alt="" loading="lazy" />
@@ -48,16 +55,17 @@ const NavBar = (props) => {
                   </MDBDropdownToggle>
                   <MDBDropdownMenu>
                     {_.map(getCategories(), (c) => (
-                      <MDBDropdownItem
-                        key={c._id}
-                        href={`/category/${c._id}?page=1`}
-                        className="text-center"
-                      >
+                      <MDBDropdownItem key={c._id} href={`/category/${c._id}?page=1`} className="text-center">
                         {c.name}
                       </MDBDropdownItem>
                     ))}
                   </MDBDropdownMenu>
                 </MDBDropdown>
+              </MDBNavItem>
+              <MDBNavItem active={isNavbarFixed}>
+                <MDBNavLink to="#" onClick={onClickFixNavbar}>
+                  Lock Navbar
+                </MDBNavLink>
               </MDBNavItem>
             </MDBNavbarNav>
             <MDBNavbarNav right className="mr-5">
@@ -67,7 +75,9 @@ const NavBar = (props) => {
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>
-        {children}
+        <MDBContainer style={{ paddingTop: isNavbarFixed ? 102 : 0 }}>
+          {children}
+        </MDBContainer>
       </Router>
     </>
   );
