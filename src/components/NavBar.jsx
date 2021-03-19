@@ -36,7 +36,7 @@ const NavBar = (props) => {
     <>
       <Router>
         <MDBNavbar color="aqua-gradient" dark expand="md" fixed={isNavbarFixed ? 'top' : undefined}>
-          <MDBNavLink to="/?page=1">
+          <MDBNavLink to="/">
             <MDBNavbarBrand>
               <img src={TotoroLogo} height="60" alt="" loading="lazy" />
               <strong className="white-text">Studio Ghibli Collection</strong>
