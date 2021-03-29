@@ -1,7 +1,7 @@
-import _ from 'lodash';
-import { BrowserRouter as Router } from 'react-router-dom';
-import React, { useState } from 'react';
-import TotoroLogo from '../assets/totoro-logo2.png';
+import _ from "lodash";
+import { BrowserRouter as Router } from "react-router-dom";
+import React, { useState } from "react";
+import TotoroLogo from "../assets/totoro-logo.png";
 
 import {
   MDBCollapse,
@@ -16,9 +16,9 @@ import {
   MDBNavbarToggler,
   MDBNavItem,
   MDBNavLink,
-} from 'mdbreact';
+} from "mdbreact";
 
-import { getCategories } from '../services/categories';
+import { getCategories } from "../services/categories";
 // import CustomSwitch from '../switch';
 
 const NavBar = (props) => {
@@ -35,7 +35,12 @@ const NavBar = (props) => {
   return (
     <>
       <Router>
-        <MDBNavbar color="aqua-gradient" dark expand="md" fixed={isNavbarFixed ? 'top' : undefined}>
+        <MDBNavbar
+          color="aqua-gradient"
+          dark
+          expand="md"
+          fixed={isNavbarFixed ? "top" : undefined}
+        >
           <MDBNavLink to="/?page=1">
             <MDBNavbarBrand>
               <img src={TotoroLogo} height="60" alt="" loading="lazy" />
@@ -55,7 +60,11 @@ const NavBar = (props) => {
                   </MDBDropdownToggle>
                   <MDBDropdownMenu>
                     {_.map(getCategories(), (c) => (
-                      <MDBDropdownItem key={c._id} href={`/category/${c._id}?page=1`} className="text-center">
+                      <MDBDropdownItem
+                        key={c._id}
+                        href={`/category/${c._id}?page=1`}
+                        className="text-center"
+                      >
                         {c.name}
                       </MDBDropdownItem>
                     ))}
@@ -75,7 +84,11 @@ const NavBar = (props) => {
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>
-        <MDBContainer style={{ paddingTop: isNavbarFixed ? 102 : 0 }}>
+        <MDBContainer
+          fluid
+          className="mx-0 px-0"
+          style={{ paddingTop: isNavbarFixed ? 102 : 0 }}
+        >
           {children}
         </MDBContainer>
       </Router>

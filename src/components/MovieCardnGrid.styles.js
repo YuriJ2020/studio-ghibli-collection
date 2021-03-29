@@ -9,17 +9,17 @@ import {
 
 const styles = {
   MDBContainerS: styled(MDBContainer)`
-    text-align: center;
     margin-top: 5rem;
   `,
 
   MDBCardTitleS: styled(MDBCardTitle)`
     text-align: center;
+    font-size: 1.2rem;
   `,
 
   MDBCardS: styled(MDBCard)`
     width: 19rem;
-    border-radius: 1.6rem;
+    border-radius: 1.8rem 1.8rem 0 0;
   `,
 
   DivS: styled.div`
@@ -27,7 +27,7 @@ const styles = {
   `,
 
   MDBCardImageS: styled(MDBCardImage)`
-    border-radius: 1.6rem;
+    border-radius: 1.8rem 1.8rem 0 0;
   `,
   MDBBtnS: styled(MDBBtn)`
     background-color: #009999 !important;

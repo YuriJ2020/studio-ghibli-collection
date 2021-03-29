@@ -17,10 +17,11 @@ const MovieCard = (props) => {
           <Link to={detailsPath}>
             <styles.MDBCardImageS className="img-fluid" src={props.img} waves />
           </Link>
-          <MDBCardBody>
+          <MDBCardBody className="p-2">
+            <MDBCardText className="m-0">{props.released}</MDBCardText>
             <styles.MDBCardTitleS>{props.title}</styles.MDBCardTitleS>
-            <MDBCardText>{props.description}</MDBCardText>
-            <styles.MDBBtnS href={detailsPath}>Read More</styles.MDBBtnS>
+
+            {/* <styles.MDBBtnS href={detailsPath}>Read More</styles.MDBBtnS> */}
           </MDBCardBody>
         </styles.MDBCardS>
       </styles.DivS>

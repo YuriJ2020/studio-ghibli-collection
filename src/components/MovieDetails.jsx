@@ -47,15 +47,15 @@ const MovieDetails = () => {
                       {movie.title}
                     </MDBCardTitle>
                     <MDBRow>
-                      <MDBCol lg={6}>
+                      <MDBCol lg="6">
                         <p className="mx-5 mb-5" style={{ lineHeight: "2" }}>
-                          {movie.descriptionDetail}
+                          {movie.description}
                         </p>
                       </MDBCol>
-                      <MDBCol lg={6}></MDBCol>
+                      <MDBCol lg="6"></MDBCol>
                     </MDBRow>
                     <MDBRow>
-                      <MDBCol md={2}>
+                      <MDBCol md="2">
                         <p className="mx-5 mb-5">
                           <span className="font-weight-bold text-nowrap">
                             Directed By{" "}
@@ -64,7 +64,7 @@ const MovieDetails = () => {
                           {movie.directed}
                         </p>
                       </MDBCol>
-                      <MDBCol md={2}>
+                      <MDBCol md="2">
                         <p className="mx-5 mb-5 text-nowrap">
                           <span className="font-weight-bold">
                             Released Year
@@ -73,7 +73,7 @@ const MovieDetails = () => {
                           {movie.released}
                         </p>
                       </MDBCol>
-                      <MDBCol md={2}>
+                      <MDBCol md="2">
                         <p className="mx-5 mb-5">
                           <span className="font-weight-bold"> Runtime </span>
                           <br />
