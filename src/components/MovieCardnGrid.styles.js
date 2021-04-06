@@ -18,7 +18,7 @@ const styles = {
   `,
 
   MDBCardS: styled(MDBCard)`
-    width: 19rem;
+    width: 18rem;
     border-radius: 1.8rem 1.8rem 0 0;
   `,
 
