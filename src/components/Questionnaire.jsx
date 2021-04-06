@@ -79,7 +79,7 @@ const Questionnaire = () => {
                   onSubmit={submitHandler}
                   noValidate
                 >
-                  <h1 className="py-3">Inqury</h1>
+                  <h1 className="py-3">Inquiry</h1>
                   <MDBRow>
                     <MDBCol md="6" className="mb-3">
                       <label
