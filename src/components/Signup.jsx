@@ -13,10 +13,7 @@ import styled from "styled-components";
 
 import ChihiroBG from "../assets/chihirobg.png";
 
-import {
-  addQuestionnaires,
-  getQuestionnaires,
-} from "../services/questionnaires";
+import { addSignup, getSignup } from "../services/signup";
 
 const ImgS = styled.div`
   background: url(${ChihiroBG});
@@ -27,17 +24,11 @@ const ImgS = styled.div`
   background-position-y: bottom;
 `;
 
-const MDBBtnS = styled(MDBBtn)`
-  background-color: #009999 !important;
-`;
-
-const Questionnaire = () => {
+const Signup = () => {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
-  const [city, setCity] = useState("");
-  const [countryState, setCountryState] = useState("");
-  const [zip, setZip] = useState("");
+  const [submissionMsg, setSubmissionMsg] = useState("");
   const [isAgreed, setIsAgreed] = useState(false);
 
   const submitHandler = (e) => {
@@ -45,41 +36,40 @@ const Questionnaire = () => {
     e.target.className += " was-validated";
     if (
       !_.isUndefined(fname) &&
+      !_.isEmpty(fname) &&
       !_.isUndefined(lname) &&
+      !_.isEmpty(lname) &&
       !_.isUndefined(email) &&
-      !_.isUndefined(city) &&
-      !_.isUndefined(countryState) &&
-      !_.isUndefined(zip) &&
+      !_.isEmpty(email) &&
       isAgreed
     ) {
-      addQuestionnaires({
+      addSignup({
         fname,
         lname,
         email,
-        city,
-        countryState: countryState,
-        zip,
         isAgreed,
       });
-      console.debug("Questionnaires:", getQuestionnaires());
+      console.debug("Signup:", getSignup());
+      setSubmissionMsg("Sign-Up completed! Thanks ");
     }
   };
 
   return (
     <>
       <div>
-        {/* style={{ backgroundColor: "#E0E0E0" }} */}
         <MDBContainer fluid className="p-0 text-white">
           <MDBView>
             <ImgS>
-              {/* <ImgS src={ChihiroBG} alt="train" /> */}
               <MDBMask className="flex-center" overlay="stylish-strong">
                 <form
                   className="needs-validation m-5"
                   onSubmit={submitHandler}
                   noValidate
                 >
-                  <h1 className="py-3">Inquiry</h1>
+                  <h1 className="py-3">Sign Up Form</h1>
+                  <h5 className="py-4">
+                    We will let you know about new movie releases.
+                  </h5>
                   <MDBRow>
                     <MDBCol md="6" className="mb-3">
                       <label
@@ -98,7 +88,12 @@ const Questionnaire = () => {
                         type="text"
                         value={fname}
                       />
-                      <div className="valid-feedback">Looks good!</div>
+                      <div className="valid-feedback cyan-text font-weight-bold">
+                        Looks good!
+                      </div>
+                      <div className="invalid-feedback font-weight-bold">
+                        Please fill in your first name.
+                      </div>
                     </MDBCol>
 
                     <MDBCol md="6" className="mb-3">
@@ -118,7 +113,12 @@ const Questionnaire = () => {
                         type="text"
                         value={lname}
                       />
-                      <div className="valid-feedback">Looks good!</div>
+                      <div className="valid-feedback cyan-text font-weight-bold">
+                        Looks good!
+                      </div>
+                      <div className="invalid-feedback font-weight-bold">
+                        Please fill in your last name.
+                      </div>
                     </MDBCol>
 
                     <MDBCol md="12" className="mb-3">
@@ -138,80 +138,9 @@ const Questionnaire = () => {
                         type="email"
                         value={email}
                       />
-                      <small id="emailHelp" className="form-text text-muted">
-                        We'll never share your email with anyone else.
-                      </small>
-                    </MDBCol>
-                  </MDBRow>
-
-                  <MDBRow>
-                    <MDBCol md="4" className="mb-3">
-                      <label
-                        htmlFor="defaultFormRegisterCityEx4"
-                        className="white-text"
-                      >
-                        City
-                      </label>
-                      <input
-                        required
-                        className="form-control"
-                        id="defaultFormRegisterCityEx4"
-                        name="city"
-                        onChange={(e) => setCity(e.target.value)}
-                        placeholder="City"
-                        type="text"
-                        value={city}
-                      />
-                      <div className="invalid-feedback">
-                        Please provide a valid city.
+                      <div className="invalid-feedback font-weight-bold">
+                        Please fill in your email address.
                       </div>
-                      <div className="valid-feedback">Looks good!</div>
-                    </MDBCol>
-
-                    <MDBCol md="4" className="mb-3">
-                      <label
-                        htmlFor="defaultFormRegisterStateEx4"
-                        className="white-text"
-                      >
-                        State
-                      </label>
-                      <input
-                        required
-                        className="form-control"
-                        id="defaultFormRegisterStateEx4"
-                        name="state"
-                        onChange={(e) => setCountryState(e.target.value)}
-                        placeholder="State"
-                        type="text"
-                        value={countryState}
-                      />
-                      <div className="invalid-feedback">
-                        Please provide a valid state.
-                      </div>
-                      <div className="valid-feedback">Looks good!</div>
-                    </MDBCol>
-
-                    <MDBCol md="4" className="mb-3">
-                      <label
-                        htmlFor="defaultFormRegisterZipEx4"
-                        className="white-text"
-                      >
-                        Post Code
-                      </label>
-                      <input
-                        required
-                        className="form-control"
-                        id="defaultFormRegisterZipEx4"
-                        name="zip"
-                        onChange={(e) => setZip(e.target.value)}
-                        placeholder="Post"
-                        type="text"
-                        value={zip}
-                      />
-                      <div className="invalid-feedback">
-                        Please provide a valid zip.
-                      </div>
-                      <div className="valid-feedback">Looks good!</div>
                     </MDBCol>
                   </MDBRow>
 
@@ -222,25 +151,28 @@ const Questionnaire = () => {
                         checked={isAgreed}
                         className="custom-control-input"
                         id="invalidCheck"
-                        onChange={(e) => setIsAgreed(!isAgreed)}
+                        onChange={() => setIsAgreed(!isAgreed)}
                         type="checkbox"
                       />
                       <label
-                        className="custom-control-label"
+                        className="custom-control-label cyan-text font-weight-bold"
                         htmlFor="invalidCheck"
                       >
                         Agree to terms and conditions
                       </label>
-                      <div className="invalid-feedback">
+                      <div className="invalid-feedback font-weight-bold">
                         You must agree before submitting.
                       </div>
                     </div>
                   </MDBCol>
 
-                  <MDBBtnS type="submit">
+                  <MDBBtn type="submit">
                     Submit Form
                     <MDBIcon far icon="paper-plane" className="ml-1" />
-                  </MDBBtnS>
+                  </MDBBtn>
+                  <h3 className="py-3 orange-text font-weight-bold">
+                    {submissionMsg}
+                  </h3>
                 </form>
               </MDBMask>
             </ImgS>
@@ -251,4 +183,4 @@ const Questionnaire = () => {
   );
 };
 
-export default Questionnaire;
+export default Signup;

@@ -19,7 +19,6 @@ import {
 } from "mdbreact";
 
 import { getCategories } from "../services/categories";
-// import CustomSwitch from '../switch';
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,11 +46,12 @@ const NavBar = (props) => {
               <strong className="white-text">Studio Ghibli Collection</strong>
             </MDBNavbarBrand>
           </MDBNavLink>
+
           <MDBNavbarToggler onClick={toggleCollapse} />
           <MDBCollapse id="navbarCollapse" isOpen={isOpen} navbar>
             <MDBNavbarNav left>
               <MDBNavItem>
-                <MDBNavLink to="/?page=1">All Movies</MDBNavLink>
+                <MDBNavLink to="/">All Movies</MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
                 <MDBDropdown>
@@ -71,15 +71,17 @@ const NavBar = (props) => {
                   </MDBDropdownMenu>
                 </MDBDropdown>
               </MDBNavItem>
+
+              <MDBNavItem>
+                <MDBNavLink to="/signup">Sign Up</MDBNavLink>
+              </MDBNavItem>
+            </MDBNavbarNav>
+
+            <MDBNavbarNav right className="mr-5">
               <MDBNavItem active={isNavbarFixed}>
                 <MDBNavLink to="#" onClick={onClickFixNavbar}>
                   Lock Navbar
                 </MDBNavLink>
-              </MDBNavItem>
-            </MDBNavbarNav>
-            <MDBNavbarNav right className="mr-5">
-              <MDBNavItem>
-                <MDBNavLink to="/questionnaire">Inquiry</MDBNavLink>
               </MDBNavItem>
             </MDBNavbarNav>
           </MDBCollapse>

@@ -1,23 +1,41 @@
 import _ from "lodash";
 
+/**
+ * Class Category.
+ */
 class Category {
+  /**
+   * Category Constructor.
+   * @param {string} id Category ID.
+   * @param {string} name Category Name.
+   */
   constructor(id, name) {
     this._id = id;
     this._name = name;
   }
+  /**
+   * @returns Category ID.
+   */
   get id() {
     return this._id;
   }
+  /**
+   * @returns Category Name.
+   */
   get name() {
     return this._name;
   }
+  /**
+   * Describe Category.
+   * @returns Category description.
+   */
   describe() {
     return `Category ID: ${this._id}; Category Name: ${this._name}`;
   }
 }
 
 class MovieCategory extends Category {
-  constructor(id, name, description = '', popularity = 0) {
+  constructor(id, name, description = "", popularity = 0) {
     super(id, name);
     this._description = description;
     this._popularity = popularity;
@@ -34,7 +52,7 @@ class MovieCategory extends Category {
   static comparePopularity(catA, catB) {
     return catA.popularity - catB.popularity;
   }
-};
+}
 
 const categories = [
   new MovieCategory("101", "Fantasy", "Fantasy Movie", 25),
@@ -46,4 +64,5 @@ const categories = [
 categories.sort(MovieCategory.comparePopularity);
 
 export const getCategories = () => categories;
-export const getCategoryByID = (id) => _.find(categories, elem => elem.id === id);
+export const getCategoryByID = (id) =>
+  _.find(categories, (elem) => elem.id === id);

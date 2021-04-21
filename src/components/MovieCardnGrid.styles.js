@@ -5,6 +5,7 @@ import {
   MDBCardTitle,
   MDBContainer,
   MDBBtn,
+  MDBIcon,
 } from "mdbreact";
 
 const styles = {
@@ -13,12 +14,13 @@ const styles = {
   `,
 
   MDBCardTitleS: styled(MDBCardTitle)`
-    text-align: center;
     font-size: 1.2rem;
+    font-weight: bolder;
+    text-align: left;
   `,
 
   MDBCardS: styled(MDBCard)`
-    width: 18rem;
+    width: 17rem;
     border-radius: 1.8rem 1.8rem 0 0;
   `,
 
@@ -31,6 +33,14 @@ const styles = {
   `,
   MDBBtnS: styled(MDBBtn)`
     background-color: #009999 !important;
+  `,
+
+  MDBIconS: styled(MDBIcon)`
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+      transition-duration: 0.2s;
+    }
   `,
 };
 

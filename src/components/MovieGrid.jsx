@@ -20,9 +20,12 @@ const MovieGrid = () => {
   const cid = _.get(params, "cid");
   const page = _.toNumber(new URLSearchParams(search).get("page"));
 
+  // Category Id
   const moviesAll = _.isUndefined(cid)
     ? getMovies()
     : getMoviesByCategoryID(cid);
+
+  // Pagination
   const moviesPaginated = _.isNaN(page)
     ? []
     : page === 0
@@ -32,16 +35,18 @@ const MovieGrid = () => {
         constants.itemsPerPage * (page - 1),
         constants.itemsPerPage * page
       );
+
+  // Total pages
   const pages =
     _.isNaN(page) || page === 0
       ? 0
       : _.ceil(moviesAll.length / constants.itemsPerPage);
 
-  console.debug("MovieGrid params:", params);
+  // console.debug("MovieGrid params:", params);
 
   return (
     <>
-      <styles.MDBContainerS className="mx-auto text-center">
+      <styles.MDBContainerS>
         <MDBRow>
           {_.map(moviesPaginated, (m) => (
             <MDBCol
@@ -50,11 +55,13 @@ const MovieGrid = () => {
               md="6"
               className="justify-content-center"
             >
-              <MovieCard key={`card-${m._id}`} {...m} />
+              {/* MovieCard Component*/}
+              <MovieCard key={`card-100${m._id}`} {...m} />
             </MDBCol>
           ))}
         </MDBRow>
 
+        {/* Pagination */}
         <MDBRow>
           <MDBCol>
             <MDBPagination className="mb-5 justify-content-center">
